@@ -2,12 +2,13 @@ import type { Ingredient } from "../types";
 
 interface Props {
     ingredients: Ingredient[];
+    onEdit: (ingredient: Ingredient) => void;
 }
 
-const IngredientList = ({ ingredients }: Props) => {
+const IngredientList = ({ ingredients, onEdit }: Props) => {
     return (
         <>
-            <h1>Your Ingredients</h1>
+            <h2>Your Ingredients</h2>
             <table>
                 <thead>
                     <tr>
@@ -16,6 +17,7 @@ const IngredientList = ({ ingredients }: Props) => {
                         <th>Unit</th>
                         <th>Cost</th>
                         <th>Expires</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +30,11 @@ const IngredientList = ({ ingredients }: Props) => {
                                 {item.quantity}
                             </td>
                             <td>{item.unit}</td>
-                            <td>{item.cost}</td>
+                            <td>${item.cost}</td>
                             <td>{item.expiration_date}</td>
+                            <td>
+                                <button onClick={() => onEdit(item)}>Edit</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
