@@ -37,7 +37,7 @@ const InventoryPage = () => {
         <>
             <h1>Inventory</h1>
             <button onClick={handleAddClick}>Add New Ingredient</button>
-            <IngredientList ingredients={ingredients} onEdit={handleEditClick}/>
+            <IngredientList ingredients={ingredients} onEdit={handleEditClick} onSuccess={fetchIngredients} />
             { showForm && (
                 <IngredientForm
                     initialData={editingIngredient}

@@ -1,11 +1,13 @@
+import InventoryActions from "../pages/InventoryActions";
 import type { Ingredient } from "../types";
 
 interface Props {
     ingredients: Ingredient[];
     onEdit: (ingredient: Ingredient) => void;
+    onSuccess: () => void
 }
 
-const IngredientList = ({ ingredients, onEdit }: Props) => {
+const IngredientList = ({ ingredients, onEdit, onSuccess }: Props) => {
     return (
         <>
             <h2>Your Ingredients</h2>
@@ -34,6 +36,7 @@ const IngredientList = ({ ingredients, onEdit }: Props) => {
                             <td>{item.expiration_date}</td>
                             <td>
                                 <button onClick={() => onEdit(item)}>Edit</button>
+                                <InventoryActions ingredientId={item.id} onSuccess={onSuccess} />
                             </td>
                         </tr>
                     ))}
