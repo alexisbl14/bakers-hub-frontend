@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 
@@ -22,11 +22,14 @@ const LoginPage = () => {
     }
 
     return (
-        <form onSubmit={handleLogin}>
-            <input value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button type="submit">Login</button>
-        </form>
+        <>
+            <form onSubmit={handleLogin}>
+                <input value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <Link to="/register">Sign Up!</Link></p>
+        </>
     )
 }
 
