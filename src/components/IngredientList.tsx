@@ -1,4 +1,4 @@
-import InventoryActions from "../pages/InventoryActions";
+import InventoryActions from "./InventoryActions";
 import type { Ingredient } from "../types";
 
 interface Props {
