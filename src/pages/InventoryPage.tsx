@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../services/api";
 import type { Ingredient } from "../types";
 import IngredientList from "../components/IngredientList";
-import IngredientForm from "./IngredientForm";
+import IngredientForm from "../components/IngredientForm";
 
 
 const InventoryPage = () => {
